@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>csvgen</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Hoxton.SR4</spring-cloud.version>
+        <opencsv.version>4.1</opencsv.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <!-- delete the default logback dependency embedded in springboot starters -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-neo4j</artifactId>
+            <!-- delete the default logback dependency embedded in springboot starters -->
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-logging</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>commons-lang3</artifactId>
+                    <groupId>org.apache.commons</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-embedded-driver</artifactId>
+            <version>${neo4j-ogm.version}</version>
+            <scope>runtime</scope>
+        </dependency>-->
+
+        <!--<dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-ogm-http-driver</artifactId>
+            <version>${neo4j-ogm.version}</version>
+            <scope>runtime</scope>
+        </dependency>-->
+
+
+        <dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j</artifactId>
+            <version>3.2.5</version>
+            <scope>runtime</scope>
+            <exclusions>
+                <exclusion>
+                    <artifactId>commons-lang3</artifactId>
+                    <groupId>org.apache.commons</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.neo4j</groupId>
+            <artifactId>neo4j-bolt</artifactId>
+            <version>4.0.4</version>
+        </dependency>-->
+
+        <!-- Neo4j testing -->
+        <dependency>
+            <groupId>org.neo4j.test</groupId>
+            <artifactId>neo4j-harness</artifactId>
+            <version>3.2.5</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.junit.vintage</groupId>
+                    <artifactId>junit-vintage-engine</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+
+        <!-- aop-aspectj -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+
+        <!--<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+        </dependency>-->
+
+        <!-- swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.9.2</version>
+            <!--  delete the defective version: cause an error when the project starts -->
+            <exclusions>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-models</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-annotations</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+            <version>1.6.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.6.0</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.9.2</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>xpp3</groupId>
+            <artifactId>xpp3</artifactId>
+            <version>1.1.4c</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-model</artifactId>
+            <version>3.3.9</version>
+        </dependency>
+        <!--<dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.10.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.10.4</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>2.10.4</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jackson-core</artifactId>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>jackson-annotations</artifactId>
+                    <groupId>com.fasterxml.jackson.core</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>-->
+
+        <dependency>
+            <groupId>com.opencsv</groupId>
+            <artifactId>opencsv</artifactId>
+            <version>${opencsv.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.ant</groupId>
+            <artifactId>ant</artifactId>
+            <version>1.10.5</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-csv</artifactId>
+            <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>8</source>
+                    <target>8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <distributionManagement>
+        <!--<repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>private repo name</id>
+            <name>private repo</name>
+            <url>scp://repo/maven2</url>
+            &lt;!&ndash;<layout>default</layout>&ndash;&gt;
+        </repository>-->
+    </distributionManagement>
+
+
+</project>
