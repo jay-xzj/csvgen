@@ -9,10 +9,11 @@ public class WriteCsv {
 
 	/** CSV file's separator for column changing */
 	//private static final String CSV_COLUMN_SEPARATOR = ",";
-	private static final String CSV_COLUMN_SEPARATOR = ",";
+	private static final String CSV_COLUMN_SEPARATOR = File.pathSeparator;
 
 	/** CSV file's separator for row changing */
-	private static final String CSV_RN = "\r\n";
+	//private static final String CSV_RN = "\r\n";
+	private static final String CSV_RN = System.lineSeparator();
 
 	private static final int BATCH = 50000;
 
